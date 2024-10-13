@@ -1,0 +1,28 @@
+[package]
+name = "wasm"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+
+chess = "3.2.0"
+wasm-bindgen = "0.2.95"
+humantime = "2"
+itertools = "0.13.0"
+web-sys = { version = "0.3.50", features = [
+  'Document',
+  'Element',
+  'HtmlElement',
+  'Node',
+  'Window',
+  "MessageEvent",
+  "Worker",
+  "Performance",
+  "PerformanceTiming",
+] }
+yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
+
+

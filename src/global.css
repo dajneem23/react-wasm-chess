@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("../style/chessground.base.css");
+@import url("../style/chessground.brown.css");
+@import url("../style/chessground.cburnett.css");
+
 html,
 body {
   height: 100%;
