@@ -77,7 +77,6 @@ impl Chess {
     pub fn get_moves(&self, params: &MovesParams) -> Vec<Move> {
         let js_value = to_value(params).unwrap();
         let js_moves = self.moves(&js_value);
-        log(&format!("js_moves {:?}", js_moves));
         let mut moves = Vec::new();
         let js_moves_array = Array::from(&js_moves);
         let obj = Object::try_from(&js_moves);
@@ -86,17 +85,12 @@ impl Chess {
             .as_string()
             .unwrap_or_default();
 
-        log(&format!("obj {:?}", obj));
-        log(&format!("js_moves_array {:?}", js_moves_array));
-
         for js_move in js_moves_array.iter() {
             let obj = Object::try_from(&js_move).unwrap();
-            log(&format!("js_move_obj {:?}", obj));
             let color = Reflect::get(&obj, &JsValue::from_str("color"))
                 .unwrap()
                 .as_string()
                 .unwrap_or_default();
-            log(&format!("js_move color {:?}", &color));
 
             let from = Reflect::get(&obj, &JsValue::from_str("from"))
                 .unwrap()
