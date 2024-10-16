@@ -27,6 +27,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@/wasm": path.resolve(__dirname, "./src/wasm"),
     },
   },
 });

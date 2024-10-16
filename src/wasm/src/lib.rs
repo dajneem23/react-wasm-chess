@@ -1,5 +1,4 @@
 pub mod chess;
-use yew::prelude::*;
 
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 use wasm_bindgen::prelude::*;
@@ -23,7 +22,6 @@ extern "C" {
     #[wasm_bindgen(js_namespace = console, js_name = log)]
     fn log_many(a: &str, b: &str);
 }
-
 macro_rules! console_log {
     ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
 }
@@ -49,31 +47,10 @@ fn run() {
 
     console_log!("request started at {}", humantime::format_rfc3339(start));
     console_log!("request ended at {}", humantime::format_rfc3339(end));
-
-    yew::Renderer::<App>::new().render();
 }
 
 fn perf_to_system(amt: f64) -> SystemTime {
     let secs = (amt as u64) / 1_000;
     let nanos = (((amt as u64) % 1_000) as u32) * 1_000_000;
     UNIX_EPOCH + Duration::new(secs, nanos)
-}
-
-#[function_component]
-fn App() -> Html {
-    let counter = use_state(|| 0);
-    let onclick = {
-        let counter = counter.clone();
-        move |_| {
-            let value = *counter + 1;
-            counter.set(value);
-        }
-    };
-
-    html! {
-        <div>
-            <button {onclick}>{ "+1" }</button>
-            <p>{ *counter }</p>
-        </div>
-    }
 }

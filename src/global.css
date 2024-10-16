@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url("../style/chessground.base.css");
 @import url("../style/chessground.brown.css");
 @import url("../style/chessground.cburnett.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {

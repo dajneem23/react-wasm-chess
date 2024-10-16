@@ -6,11 +6,11 @@ import App from "./App";
 import "./global.css";
 
 // for webAssembly
-// import init from "./wasm/pkg/wasm";
+import wasm from "./wasm/pkg/wasm";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 (async () => {
-  // await init();
+  await wasm();
 
   // Setup MSW mock server in development
   if (process.env.NODE_ENV === "development") {

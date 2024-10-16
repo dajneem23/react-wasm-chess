@@ -1,0 +1,21 @@
+{
+  "extension": ["ts", "js"],
+  "spec": ["src/**/*.spec.ts"],
+  "recursive": true,
+  "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/wasm": ["./src/wasm/pkg/wasm.js"]
+    }
+  },
+  "exclude": ["node_modules", "*.wasm"]
+}
