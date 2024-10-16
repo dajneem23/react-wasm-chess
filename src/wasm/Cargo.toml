@@ -8,7 +8,6 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 
-chess = "3.2.0"
 wasm-bindgen = "0.2.95"
 humantime = "2"
 itertools = "0.13.0"
@@ -23,6 +22,6 @@ web-sys = { version = "0.3.50", features = [
   "Performance",
   "PerformanceTiming",
 ] }
-yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
-
-
+gloo-timers = "0.3.0"
+serde = "1.0.210"
+serde-wasm-bindgen = "0.6.5"

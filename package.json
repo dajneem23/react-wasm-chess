@@ -1,5 +1,5 @@
 {
-  "name": "rfx-synthetics",
+  "name": "react-wasm-chess",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,6 +7,7 @@
     "dev": "./build.sh && vite",
     "build": "./build.sh && vite build",
     "serve": "vite preview",
+    "test": "env TS_NODE_PROJECT='./tsconfig.test.json' mocha 'src/**/*.spec.ts'",
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint:eslint": "eslint --fix $(git diff --name-only --cached --diff-filter=AM | grep '\\.ts')",
     "lint:prettier": "prettier --write .prettierrc.json $(git diff --name-only --cached --diff-filter=AM | grep '\\.ts')"
@@ -14,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/chai": "^4.3.4",
+    "@types/chai": "^4.3.20",
     "@types/mocha": "10.0.9",
     "@types/node": "22.7.5",
     "@typescript-eslint/eslint-plugin": "8.8.1",
@@ -27,6 +28,7 @@
     "husky": "9.1.6",
     "prettier": "3.3.3",
     "ts-node": "^10.9.1",
+    "tsx": "^4.19.1",
     "typechain": "^8.1.1",
     "typescript": "^4.8.4",
     "vite-plugin-top-level-await": "^1.4.4",
@@ -48,6 +50,8 @@
     "graphql": "^16.8.1",
     "hardhat-contract-sizer": "^2.6.1",
     "javascript-time-ago": "^2.5.9",
+    "jest": "^29.7.0",
+    "mocha": "^10.7.3",
     "msw": "^2.4.10",
     "node-fetch": "^2.6.1",
     "prb-math": "2.4.3",
