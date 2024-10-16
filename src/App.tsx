@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 import Chessground from "./components/Chessground";
-import { to_dests } from "./utils/chess";
+import { to_dests, toDestsJS } from "./utils/chess";
 import { Chess } from "chess.js";
 
-const App = () => {
+const App = () => (
   useEffect(() => {
-    console.log("Chessground useEffect", to_dests(new Chess()));
-  }, []);
-  return (
+    console.log("Chessground useEffect", {
+      toDestsJS: toDestsJS(new Chess()),
+      to_dests: to_dests(new Chess()),
+    });
+  }, []),
+  (
     <div>
       <h1>Hello, Vite + React + WebAssembly!</h1>
       <Chessground
@@ -55,7 +58,7 @@ const App = () => {
         }}
       />
     </div>
-  );
-};
+  )
+);
 
 export default App;

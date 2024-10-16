@@ -6,18 +6,19 @@ import { to_dests } from "@/wasm/pkg/wasm";
 
 export { to_dests };
 
-// export function toDests(chess: Chess): Map<Key, Key[]> {
-//   const dests = new Map();
-//   SQUARES.forEach((s) => {
-//     const ms  = chess.moves({ square: s, verbose: true });
-//     if (ms.length)
-//       dests.set(
-//         s,
-//         ms.map((m) => m.to),
-//       );
-//   });
-//   return dests;
-// }
+export function toDestsJS(chess: Chess): Map<Key, Key[]> {
+  const dests = new Map();
+  SQUARES.forEach((s) => {
+    const ms = chess.moves({ square: s, verbose: true });
+    console.log("ms js", ms);
+    if (ms.length)
+      dests.set(
+        s,
+        ms.map((m) => m.to),
+      );
+  });
+  return dests;
+}
 
 export function toColor(chess: Chess): Color {
   return chess.turn() === "w" ? "white" : "black";
